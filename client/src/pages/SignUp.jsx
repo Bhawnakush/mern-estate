@@ -75,7 +75,7 @@ catch(error)
  <Link to ={"/signin"}>
   <span className="text-blue-700">Sign in</span>
  </Link></div>
- {error && <p className="text-res-500 mt-5">{error}</p>}
+ {error && <p className="'text-red-500-mt-5"></p>}
     </div>
   )
 }
