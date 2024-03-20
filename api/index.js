@@ -1,4 +1,4 @@
-
+const cookieParser=require('cookie-parser')
 const express=require('express')
 const mongoose=require('mongoose')
 const dotenv=require('dotenv')
@@ -16,6 +16,7 @@ const app=express();
     console.log("server is running on port 3000! ")
  })
  app.use(express.json())
+ app.use(cookieParser());
  app.use("/api/user",userRoutes)
  app.use("/api/auth",authRouter)
  app.use((err,req,res,next)=>{
