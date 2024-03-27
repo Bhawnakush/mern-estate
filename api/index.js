@@ -5,6 +5,7 @@ const dotenv=require('dotenv')
 dotenv.config()
 const userRoutes=require('./routes/user.route.js')
 const authRouter=require('./routes/auth.route.js')
+const listingRouter=require('./routes/listing.route.js')
 mongoose.connect(process.env.MONGO).then(()=>{
 console.log('connected to Mongodb!');
 
@@ -19,11 +20,12 @@ const app=express();
  app.use(cookieParser());
  app.use("/api/user",userRoutes)
  app.use("/api/auth",authRouter)
+ app.use("/api/listing",listingRouter);
  app.use((err,req,res,next)=>{
     const statusCode=err.statusCode || 500;
     const message=err.message || "internal server error";
     return res.status(statusCode).json({
-        sucess:false,
+        success:false,
         statusCode,
         message,
     })

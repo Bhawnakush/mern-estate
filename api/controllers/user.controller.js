@@ -34,3 +34,16 @@ try {
     
 }
 }
+exports.deleteUser= async(req,res,next)=>{
+try{ if(req.body.id!==req.params.id)
+return next(errorHandler(401,'you can only delete your account'))
+
+    await User.findByIdAndDelete(req.params.id)
+    if(!this.deleteUser)
+return next(errorHandler(404,'user not found'))
+res.clearCookie('access_token')
+    res.status(200).json('user deleted succesfully')
+} catch (error) {
+    next(error)
+}
+}
