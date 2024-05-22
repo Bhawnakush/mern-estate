@@ -35,7 +35,7 @@ try {
 }
 }
 exports.deleteUser= async(req,res,next)=>{
-try{ if(req.body.id!==req.params.id)
+try{ if(req.user.id!==req.params.id)
 return next(errorHandler(401,'you can only delete your account'))
 
     await User.findByIdAndDelete(req.params.id)

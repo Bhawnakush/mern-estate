@@ -1,6 +1,6 @@
 
 const jwt=require('jsonwebtoken')
-const { errorHandler } = require("./error");
+const { errorHandler } = require("./error.js");
 
 exports.verifyToken=(req,res,next)=>{
     const token=req.cookies.access_token;
